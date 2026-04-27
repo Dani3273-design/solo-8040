@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS orders (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    order_no VARCHAR(50) NOT NULL UNIQUE,
+    product_name VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO orders (order_no, product_name, quantity, price, status) VALUES
+('ORD2024001', 'MacBook Pro', 1, 12999.00, 'PAID'),
+('ORD2024002', 'iPhone 15', 2, 6999.00, 'PENDING'),
+('ORD2024003', 'AirPods Pro', 1, 1999.00, 'SHIPPED');
